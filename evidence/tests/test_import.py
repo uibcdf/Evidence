@@ -1,11 +1,11 @@
 """
-Unit and regression test for the evidency package.
+Unit and regression test for the evidence package.
 """
 
 # Import package, test suite, and other packages as needed
 import pytest
 import sys
 
-def test_evidency_imported():
+def test_evidence_imported():
     """Sample test, will always pass so long as import statement worked"""
-    assert "evidency" in sys.modules
+    assert "evidence" in sys.modules

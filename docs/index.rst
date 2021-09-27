@@ -1,6 +1,6 @@
-.. evidency documentation master file
+.. evidence documentation master file
 
-Evidency
+Evidence
 ========
 
 XXX

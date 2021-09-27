@@ -22,19 +22,19 @@ import sys
 
 sys.path.insert(0, os.path.abspath('..'))
 
-import evidency
+import evidence
 
 # -- Project information -----------------------------------------------------
 
-project = 'Evidency'
+project = 'Evidence'
 copyright = ('2021, UIBCDF Lab at the Mexico City Childrens Hospital Federico Gomez and authors.'
         'Project structure based on the Computational Molecular Science Python Cookiecutter version 1.5')
 author = 'Liliana M. Moreno Vargas & Diego Prada Gracia'
 
 # The short X.Y version
-version = evidency.__version__.split('+')[0]
+version = evidence.__version__.split('+')[0]
 # The full version, including alpha/beta/rc tags
-release = evidency.__version__
+release = evidence.__version__
 
 
 # -- General configuration ---------------------------------------------------
@@ -162,7 +162,7 @@ html_css_files = [
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'evidencydoc'
+htmlhelp_basename = 'evidencedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -189,8 +189,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-        (master_doc, 'evidency.tex', 'Evidency Documentation',
-            'evidency', 'manual'),
+        (master_doc, 'evidence.tex', 'Evidence Documentation',
+            'evidence', 'manual'),
 ]
 
 
@@ -199,7 +199,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-        (master_doc, 'evidency', 'Evidency Documentation',
+        (master_doc, 'evidence', 'Evidence Documentation',
             [author], 1)
 
 ]
@@ -211,8 +211,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'evidency', 'Evidency Documentation',
-        author, 'evidency', 'This must be a short description of the project',
+    (master_doc, 'evidence', 'Evidence Documentation',
+        author, 'evidence', 'This must be a short description of the project',
         'Miscellaneous'),
 
 ]
