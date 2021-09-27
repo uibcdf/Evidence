@@ -13,3 +13,10 @@ class DOI():
 
         return tmp_dict
 
+    def __repr__(self):
+
+        return f'<DOI: {self.id}>'
+
+    def __str__(self):
+
+        return f'DOI: {self.id}'

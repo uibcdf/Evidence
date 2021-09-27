@@ -13,3 +13,11 @@ class UniProtKB():
 
         return tmp_dict
 
+    def __repr__(self):
+
+        return f'<UniProtKB: {self.id}>'
+
+    def __str__(self):
+
+        return f'UniProtKB: {self.id}'
+

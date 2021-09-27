@@ -29,3 +29,12 @@ class JournalArticle():
                 }
 
         return tmp_dict
+
+    def __repr__(self):
+
+        return f'<Journal Article: {self.journal}, {self.year}, {self.volume}, {self.first_page}-{self.last_page}>'
+
+    def __str__(self):
+
+        return f'{self.authors}, {self.title}. {self.journal}, {self.year}, {self.volume}, {self.first_page}-{self.last_page}'
+

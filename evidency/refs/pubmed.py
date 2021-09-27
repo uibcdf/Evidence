@@ -13,3 +13,11 @@ class PubMed():
 
         return tmp_dict
 
+    def __repr__(self):
+
+        return f'<PubMed: {self.id}>'
+
+    def __str__(self):
+
+        return f'PubMed: {self.id}'
+
