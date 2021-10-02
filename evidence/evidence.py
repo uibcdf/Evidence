@@ -57,3 +57,10 @@ class Evidence():
 
         pass
 
+    def add_NCBI_Taxonomy(self, id=None):
+
+        tmp_ref = refs.NCBI_Taxonomy(id=id)
+        self.references.append(tmp_ref)
+
+        pass
+
