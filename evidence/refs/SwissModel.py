@@ -1,32 +1,32 @@
-class PDB():
+class SwissModel():
 
     def __init__(self, id=None):
 
-        self.database = 'PDB'
+        self.database = 'SwissModel'
         self.id = id
-        self._long_name = 'Protein Data Bank'
-        self._web = 'https://www.wwpdb.org/'
+        self._long_name = 'Swiss-Model Repository'
+        self._web = 'https://swissmodel.expasy.org/'
 
     def __call__(self):
 
         tmp_dict = {
-                'database' : 'PDB',
-                'id' : self
+                'database' : 'Swiss-Model',
+                'id' : self.id
                 }
 
         return tmp_dict
 
     def __repr__(self):
 
-        return f'<PDB: {self.id}>'
+        return f'<Swiss-Model: {self.id}>'
 
     def __str__(self):
 
-        return f'PDB: {self.id}'
+        return f'Swiss-Model: {self.id}'
 
     def __deepcopy__(self):
 
-        return PDB(id=self.id)
+        return SwissModel(id=self.id)
 
     def _webid(self):
 

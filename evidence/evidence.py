@@ -22,164 +22,56 @@ class Evidence():
 
         return f"{self.value} <{len(self.references)} refs.>"
 
+    def _repr_html_(self):
+
+        output = f"{self.value}"
+
+        output_refs = []
+        for ref in self.references:
+            output_refs.append(ref._repr_html_())
+
+        if len(output_refs):
+            output += ' <'+', '.join(output_refs)+'>'
+
+        return output
+
     def __str__(self):
 
-        return str(self.value)
+        output = f"{self.value}"
 
-    def add_BindingDB(self, id=None):
+        output_refs = []
+        for ref in self.references:
+            output_refs.append(ref.__str__())
 
-        tmp_ref = refs.BindingDB(id=id)
-        self.references.append(tmp_ref)
+        if len(output_refs):
+            output += ' <'+', '.join(output_refs)+'>'
 
-        pass
+        return output
 
-    def add_BioGRID(self, id=None):
+    def add_reference(self, reference):
 
-        tmp_ref = refs.BioGRID(id=id)
-        self.references.append(tmp_ref)
+        from .tools import reference as _reference
 
-        pass
+        reference = _reference(reference)
+        dict_reference = reference()
 
-    def add_ChEMBL(self, id=None):
+        new=True
+        for aux in self.references:
+            if aux()==dict_reference:
+                new=False
+                break
 
-        tmp_ref = refs.ChEMBL(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_DIP(self, id=None):
-
-        tmp_ref = refs.DIP(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_ELM(self, id=None):
-
-        tmp_ref = refs.ELM(id=id)
-        self.references.append(tmp_ref)
+        if new:
+            self.references.append(reference)
 
         pass
 
-    def add_IntAct(self, id=None):
+    def __deepcopy__(self):
 
-        tmp_ref = refs.IntAct(id=id)
-        self.references.append(tmp_ref)
+        aux = Evidence()
+        aux.value = self.value
+        for ref in self.reference:
+            aux.append(ref.__deepcopy__())
 
-        pass
-
-    def add_InterPro(self, id=None):
-
-        tmp_ref = refs.InterPro(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_iPTMnet(self, id=None):
-
-        tmp_ref = refs.iPTMnet(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_iPTMnet(self, id=None):
-
-        tmp_ref = refs.iPTMnet(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_JournalArticle(self, title=None, authors=None, journal=None, volume=None,
-            first_page=None, last_page=None, year=None, DOI=None, PubMed=None):
-
-        tmp_ref = refs.JournalArticle(title=None, authors=None, journal=None, volume=None,
-            first_page=None, last_page=None, year=None, DOI=None, PubMed=None)
-
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_MINT(self, id=None):
-
-        tmp_ref = refs.MINT(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_NCBI_Taxonomy(self, id=None):
-
-        tmp_ref = refs.NCBI_Taxonomy(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_PDB(self, id=None):
-
-        tmp_ref = refs.PDB(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_Pfam(self, id=None):
-
-        tmp_ref = refs.Pfam(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_PhosphoSitePlus(self, id=None):
-
-        tmp_ref = refs.PhosphoSitePlus(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_ProDom(self, id=None):
-
-        tmp_ref = refs.ProDom(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_ProteinModelPortal(self, id=None):
-
-        tmp_ref = refs.ProteinModelPortal(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_PubMed(self, id=None):
-
-        tmp_ref = refs.PubMed(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_STRING(self, id=None):
-
-        tmp_ref = refs.STRING(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_SUPFAM(self, id=None):
-
-        tmp_ref = refs.SUPFAM(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_Swiss_Model(self, id=None):
-
-        tmp_ref = refs.Swiss_Model(id=id)
-        self.references.append(tmp_ref)
-
-        pass
-
-    def add_UniProtKB(self, id=None):
-
-        tmp_ref = refs.UniProtKB(id=id)
-        self.references.append(tmp_ref)
-
-        pass
+        return aux
 

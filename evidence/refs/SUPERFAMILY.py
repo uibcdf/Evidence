@@ -1,32 +1,32 @@
-class PDB():
+class SUPERFAMILY():
 
     def __init__(self, id=None):
 
-        self.database = 'PDB'
+        self.database = 'SUPERFAMILY'
         self.id = id
-        self._long_name = 'Protein Data Bank'
-        self._web = 'https://www.wwpdb.org/'
+        self._long_name = 'SUPERFAMILY 2'
+        self._web = 'https://supfam.org/'
 
     def __call__(self):
 
         tmp_dict = {
-                'database' : 'PDB',
-                'id' : self
+                'database' : 'SUPERFAMILY',
+                'id' : self.id
                 }
 
         return tmp_dict
 
     def __repr__(self):
 
-        return f'<PDB: {self.id}>'
+        return f'<SUPERFAMILY: {self.id}>'
 
     def __str__(self):
 
-        return f'PDB: {self.id}'
+        return f'SUPERFAMILY: {self.id}'
 
     def __deepcopy__(self):
 
-        return PDB(id=self.id)
+        return SUPERFAMILY(id=self.id)
 
     def _webid(self):
 

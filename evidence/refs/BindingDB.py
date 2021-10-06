@@ -1,8 +1,11 @@
 class BindingDB():
 
-    def __init__(self, name=None, id=None):
+    def __init__(self, id=None):
 
+        self.database = 'BindingDB'
         self.id = id
+        self._long_name = 'BindingDB'
+        self._web = 'https://www.bindingdb.org'
 
     def __call__(self):
 
@@ -20,4 +23,17 @@ class BindingDB():
     def __str__(self):
 
         return f'BindingDB: {self.id}'
+
+    def __deepcopy__(self):
+
+        return BindingDB(id=self.id)
+
+    def _webid(self):
+
+        return self._web
+
+    def _repr_html_(self):
+
+        return f'<a href="{self._webid()}">{self.database}: {self.id}</a>'
+
 

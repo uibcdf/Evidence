@@ -12,6 +12,7 @@ class JournalArticle():
         self.year = year
         self.doi = doi
         self.pubmed = pubmed
+        self._long_name = 'journal article'
 
     def __call__(self):
 
@@ -37,4 +38,10 @@ class JournalArticle():
     def __str__(self):
 
         return f'{self.authors}, {self.title}. {self.journal}, {self.year}, {self.volume}, {self.first_page}-{self.last_page}'
+
+    def __deepcopy__(self):
+
+        return JournalArticle(title=self.title, authors=self.authors, journal=self.journal,
+                volume=self.volume, first_page=self.first_page, last_page=self.last_page,
+                year=self.year, doi=self.doi, pubmed=self.pubmed)
 

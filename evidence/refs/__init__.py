@@ -1,23 +1,18 @@
-from .BindingDB import BindingDB
-from .BioGRID import BioGRID
-from .ChEMBL import ChEMBL
-from .DIP import DIP
-from .DOI import DOI
-from .ELM import ELM
-from .IntAct import IntAct
-from .InterPro import InterPro
-from .iPTMnet import iPTMnet
-from .journal_article import JournalArticle
-from .MINT import MINT
-from .NCBI_Taxonomy import NCBI_Taxonomy
-from .PDB import PDB
-from .Pfam import Pfam
-from .PhosphoSitePlus import PhosphoSitePlus
-from .ProDom import ProDom
-from .ProteinModelPortal import ProteinModelPortal
-from .PubMed import PubMed
-from .STRING import STRING
-from .SUPFAM import SUPFAM
-from .Swiss_Model import Swiss_Model
-from .UniProtKB import UniProtKB
+from importlib import import_module
+import os
+
+dict_ref = {}
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+excluded_files = ['__init__.py']
+list_apis = [filename.split('.')[0] for filename in os.listdir(current_dir) if (filename not in excluded_files) and filename.endswith('.py')]
+
+for api_name in list_apis:
+
+    mod = import_module('evidence.refs.'+api_name)
+
+    dict_ref[api_name]=getattr(mod, api_name)
+
+del(current_dir, excluded_files, list_apis, mod, api_name)
 
