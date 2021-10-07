@@ -34,5 +34,5 @@ class UniProtKB():
 
     def _repr_html_(self):
 
-        return f'<a href="{self._webid()}">{self.database}: {self.id}</a>'
+        return f'<a href="https://www.uniprot.org/uniprot/{self.id}">{self.database}: {self.id}</a>'
 

@@ -18,6 +18,10 @@ class Evidence():
 
         return __call__(self)
 
+    def __len__(self):
+
+        return len(self.value)
+
     def __repr__(self):
 
         return f"{self.value} <{len(self.references)} refs.>"

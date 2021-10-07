@@ -10,7 +10,7 @@ class SwissModel():
     def __call__(self):
 
         tmp_dict = {
-                'database' : 'Swiss-Model',
+                'database' : 'SwissModel',
                 'id' : self.id
                 }
 

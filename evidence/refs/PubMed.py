@@ -34,5 +34,5 @@ class PubMed():
 
     def _repr_html_(self):
 
-        return f'<a href="{self._webid()}">{self.database}: {self.id}</a>'
+        return f'<a href="https://pubmed.ncbi.nlm.nih.gov/{self.id}">{self.database}: {self.id}</a>'
 

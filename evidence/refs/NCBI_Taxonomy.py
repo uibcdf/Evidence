@@ -5,7 +5,7 @@ class NCBI_Taxonomy():
         self.database = 'NCBI_Taxonomy'
         self.id = id
         self._long_name = 'The NCBI Taxonomy Database'
-        self._web = 'https://www.ncbi.nlm.nih.gov/taxonomy'
+        self._web = 'https://www.ncbi.nlm.nih.gov/Taxonomy'
 
     def __call__(self):
 
@@ -34,5 +34,5 @@ class NCBI_Taxonomy():
 
     def _repr_html_(self):
 
-        return f'<a href="{self._webid()}">{self.database}: {self.id}</a>'
+        return f'<a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={self.id}">{self.database}: {self.id}</a>'
 
