@@ -1,5 +1,5 @@
 """
-Evidency
+Evidence
 This must be a short description of the project
 """
 import sys
@@ -19,7 +19,7 @@ except:
     long_description = "\n".join(short_description[2:])
 
 setup(
-    name='evidency',
+    name='evidence',
     author='UIBCDF Lab',
     author_email='uibcdf@gmail.com',
     description=short_description[0],
@@ -32,10 +32,10 @@ setup(
     include_package_data=True,
     setup_requires=[] + pytest_runner,
     platforms=['Linux', 'Unix', 'Mac OS-X', 'Windows'],
-    package_dir={'evidency': 'evidency'},
+    package_dir={'evidence': 'evidence'},
     scripts=[],
     url='http://uibcdf.org',
-    download_url ='https://github.com/uibcdf/evidency',
+    download_url ='https://github.com/uibcdf/evidence',
     install_requires=[
       ],
     python_requires=">=3.7"
