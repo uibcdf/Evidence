@@ -1,0 +1,53 @@
+production:
+  channels:
+    - defaults
+  dependencies:
+    - python
+
+development:
+  channels:
+    - defaults
+  dependencies:
+    - python
+
+test:
+  channels:
+    - ambermd
+    - defaults
+  dependencies:
+    - python
+    - pytest
+    - pip
+    - pytest-cov
+    - codecov
+
+docs:
+  channels:
+    - defaults
+  dependencies:
+    - python
+    - jupyterlab
+    - sphinx
+    - sphinx_rtd_theme
+    - sphinxcontrib-bibtex
+    - nbsphinx
+    - recommonmark
+    - sphinx-markdown-tables
+
+setup:
+  channels:
+    - defaults
+  dependencies:
+    - python
+    - setuptools
+    - numpy
+    - versioneer
+
+conda-build:
+  channels:
+    - defaults
+  dependencies:
+    - python
+    - anaconda-client
+    - conda-build
+

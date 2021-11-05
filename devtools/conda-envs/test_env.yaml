@@ -1,0 +1,9 @@
+channels:
+- ambermd
+- defaults
+dependencies:
+- python
+- pytest
+- pip
+- pytest-cov
+- codecov
