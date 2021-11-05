@@ -23,6 +23,7 @@ test:
 
 docs:
   channels:
+    - conda-forge
     - defaults
   dependencies:
     - python
