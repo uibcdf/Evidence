@@ -65,7 +65,7 @@ jobs:
       shell: bash -l {0}
 
       run: |
-        pytest -v --cov=evidency --cov-report=xml --color=yes evidency/tests/
+        pytest -v --cov=evidence --cov-report=xml --color=yes evidence/tests/
 
     - name: CodeCov
       uses: codecov/codecov-action@v1
