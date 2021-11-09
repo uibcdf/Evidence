@@ -24,6 +24,7 @@ test: # inherits production
 docs: # inherits production
   channels:
     - *production_channels
+    - conda-forge
   dependencies:
     - *production_dependencies
     - jupyterlab
