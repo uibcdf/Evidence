@@ -9,7 +9,7 @@ build:
   number: 1
 package:
   name: evidence
-  version: '{{ environ[''GIT_DESCRIBE_TAG''] }}'
+  version: '{{ environ["GIT_DESCRIBE_TAG"] }}'
 requirements:
   build:
   - python
