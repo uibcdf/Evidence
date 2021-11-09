@@ -6,7 +6,6 @@ setup:
     - python
     - setuptools
     - numpy
-    - versioneer
 
 production:
   channels: &production_channels

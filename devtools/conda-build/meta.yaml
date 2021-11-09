@@ -13,7 +13,6 @@ requirements:
     - python
     - setuptools
     - numpy
-    - versioneer
 
   run:
     - python
