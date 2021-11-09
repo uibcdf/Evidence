@@ -3,6 +3,7 @@ Unit and regression test for the evidence package.
 """
 
 # Import package, test suite, and other packages as needed
+import evidence
 import pytest
 import sys
 

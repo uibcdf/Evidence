@@ -1,5 +1,4 @@
 channels:
-- ambermd
 - defaults
 dependencies:
 - python

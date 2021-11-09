@@ -1,32 +1,31 @@
 production:
-  channels:
+  channels: &production_channels
     - defaults
-  dependencies:
+  dependencies: &production_dependencies
     - python
 
-development:
+development: # inherits production
   channels:
-    - defaults
+    - *production_channels
   dependencies:
-    - python
+    - *production_dependencies
+    - pyyaml
 
-test:
+test: # inherits production
   channels:
-    - ambermd
-    - defaults
+    - *production_channels
   dependencies:
-    - python
+    - *production_dependencies
     - pytest
     - pip
     - pytest-cov
     - codecov
 
-docs:
+docs: # inherits production
   channels:
-    - conda-forge
-    - defaults
+    - *production_channels
   dependencies:
-    - python
+    - *production_dependencies
     - jupyterlab
     - sphinx
     - sphinx_rtd_theme

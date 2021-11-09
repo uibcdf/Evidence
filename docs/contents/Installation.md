@@ -9,13 +9,13 @@ There is no stable version yet
 If you want to work with the last testing version, the installation command is the following:
 
 ```bash
-conda install -c uibcdf/label/dev evidency
+conda install -c uibcdf/label/dev evidence
 ```
 
 To uninstall this library:
 
 ```bash
-conda remove evidency
+conda remove evidence
 ```
 
 
@@ -24,14 +24,14 @@ conda remove evidency
 The raw code fully alive can be installed from this github repo as follows:
 
 ```bash
-git clone https://github.com/uibcdf/evidency.git
-cd evidency
+git clone https://github.com/uibcdf/evidence.git
+cd evidence
 python setup.py develop
 ```
 
 In this case, do the following to uninstall it:
 
 ```bash
-pip uninstall evidency
+pip uninstall evidence
 ```
 

@@ -15,6 +15,7 @@ on:
     #   Scheduled workflows run on the latest commit on the default or base branch.
     #   (from https://help.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events-schedule)
     - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   test:
@@ -22,7 +23,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-latest, ubuntu-latest, windows-latest]
+        os: [macOS-latest, ubuntu-latest] # not 'windows-latest' yet
         python-version: [3.7, 3.8, 3.9]
 
     steps:
@@ -64,7 +65,7 @@ jobs:
       shell: bash -l {0}
 
       run: |
-        pytest -v --cov=evidency --cov-report=xml --color=yes evidency/tests/
+        pytest -v --cov=evidence --cov-report=xml --color=yes evidence/tests/
 
     - name: CodeCov
       uses: codecov/codecov-action@v1
