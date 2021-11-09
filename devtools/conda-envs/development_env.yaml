@@ -5,5 +5,4 @@ dependencies:
 - python
 - setuptools
 - numpy
-- versioneer
 - pyyaml

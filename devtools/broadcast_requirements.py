@@ -15,54 +15,77 @@ def heal(arg):
 
     return output
 
-with open('../requirements.yaml') as fff:
+with open('requirements.yaml') as fff:
     all_requirements = yaml.load(fff, Loader=yaml.FullLoader)
 
-# Production
+# Broadcasting to conda-build
+
+## meta.yaml
+
+with open('conda-build/meta.yaml') as fff:
+    meta = yaml.load(fff, Loader=yaml.FullLoader)
+
+meta["requirements"]["build"] = heal(all_requirements["setup"]["dependencies"])
+meta["requirements"]["run"] = heal(all_requirements["production"]["dependencies"])
+
+fff = open("conda-build/meta.yaml", "w")
+yaml.dump(meta, fff, sort_keys=True)
+fff.close()
+
+
+# Broadcasting to conda-envs
+
+## Production
+
 env_dict={}
 env_dict["channels"]=heal(all_requirements["production"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["production"]["dependencies"])
-fff = open("production_env.yaml", "w")
+fff = open("conda-envs/production_env.yaml", "w")
 yaml.dump(env_dict, fff, sort_keys=True)
 fff.close()
 
-# Development
+## Development
+
 env_dict={}
 env_dict["channels"]=heal(all_requirements["development"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["development"]["dependencies"])
-fff = open("development_env.yaml", "w")
+fff = open("conda-envs/development_env.yaml", "w")
 yaml.dump(env_dict, fff, sort_keys=True)
 fff.close()
 
-# Test
+## Test
+
 env_dict={}
 env_dict["channels"]=heal(all_requirements["test"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["test"]["dependencies"])
-fff = open("test_env.yaml", "w")
+fff = open("conda-envs/test_env.yaml", "w")
 yaml.dump(env_dict, fff, sort_keys=True)
 fff.close()
 
-# Docs
+## Docs
+
 env_dict={}
 env_dict["channels"]=heal(all_requirements["docs"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["docs"]["dependencies"])
-fff = open("docs_env.yaml", "w")
+fff = open("conda-envs/docs_env.yaml", "w")
 yaml.dump(env_dict, fff, sort_keys=False)
 fff.close()
 
-# Setup
+## Setup
+
 env_dict={}
 env_dict["channels"]=heal(all_requirements["setup"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["setup"]["dependencies"])
-fff = open("setup_env.yaml", "w")
+fff = open("conda-envs/setup_env.yaml", "w")
 yaml.dump(env_dict, fff, sort_keys=False)
 fff.close()
 
-# Build
+## Build
+
 env_dict={}
 env_dict["channels"]=heal(all_requirements["conda-build"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["conda-build"]["dependencies"])
-fff = open("build_env.yaml", "w")
+fff = open("conda-envs/build_env.yaml", "w")
 yaml.dump(env_dict, fff, sort_keys=False)
 fff.close()
 

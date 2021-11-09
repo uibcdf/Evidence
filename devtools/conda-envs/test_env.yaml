@@ -5,7 +5,6 @@ dependencies:
 - python
 - setuptools
 - numpy
-- versioneer
 - pytest
 - pip
 - pytest-cov

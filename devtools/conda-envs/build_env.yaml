@@ -5,6 +5,5 @@ dependencies:
 - python
 - setuptools
 - numpy
-- versioneer
 - anaconda-client
 - conda-build
