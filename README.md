@@ -1,1 +1,2 @@
 # Evidence
+Scientific Python libraries or scripts often work with data coming from a database, a scientific communication, or any other external source.  These data, or "evidences", are then supported by external references. And these references should walk attached to the value of these evidences through your code. To this aim, this library provides a python object named `Evidence`. Have a look at xxx see how it works.
