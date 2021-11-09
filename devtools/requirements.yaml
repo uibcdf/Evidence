@@ -36,9 +36,10 @@ docs: # inherits production
     - sphinx-markdown-tables
 
 setup:
-  channels:
+  channels: &setup_channels
+    - conda-forge
     - defaults
-  dependencies:
+  dependencies: &setup_dependencies
     - python
     - setuptools
     - numpy
@@ -46,9 +47,9 @@ setup:
 
 conda-build:
   channels:
-    - defaults
+    - *setup_channels
   dependencies:
-    - python
+    - *setup_dependencies
     - anaconda-client
     - conda-build
 
