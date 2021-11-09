@@ -1,40 +1,3 @@
-production:
-  channels: &production_channels
-    - defaults
-  dependencies: &production_dependencies
-    - python
-
-development: # inherits production
-  channels:
-    - *production_channels
-  dependencies:
-    - *production_dependencies
-    - pyyaml
-
-test: # inherits production
-  channels:
-    - *production_channels
-  dependencies:
-    - *production_dependencies
-    - pytest
-    - pip
-    - pytest-cov
-    - codecov
-
-docs: # inherits production
-  channels:
-    - conda-forge
-    - *production_channels
-  dependencies:
-    - *production_dependencies
-    - jupyterlab
-    - sphinx
-    - sphinx_rtd_theme
-    - sphinxcontrib-bibtex
-    - nbsphinx
-    - recommonmark
-    - sphinx-markdown-tables
-
 setup:
   channels: &setup_channels
     - conda-forge
@@ -44,6 +7,48 @@ setup:
     - setuptools
     - numpy
     - versioneer
+
+production:
+  channels: &production_channels
+    - defaults
+  dependencies: &production_dependencies
+    - python
+
+development: # inherits production
+  channels:
+    - *setup_channels
+    - *production_channels
+  dependencies:
+    - *setup_dependencies
+    - *production_dependencies
+    - pyyaml
+
+test: # inherits production
+  channels:
+    - *setup_channels
+    - *production_channels
+  dependencies:
+    - *setup_dependencies
+    - *production_dependencies
+    - pytest
+    - pip
+    - pytest-cov
+    - codecov
+
+docs: # inherits production
+  channels:
+    - *setup_channels
+    - *production_channels
+  dependencies:
+    - *setup_dependencies
+    - *production_dependencies
+    - jupyterlab
+    - sphinx
+    - sphinx_rtd_theme
+    - sphinxcontrib-bibtex
+    - nbsphinx
+    - recommonmark
+    - sphinx-markdown-tables
 
 conda-build:
   channels:
