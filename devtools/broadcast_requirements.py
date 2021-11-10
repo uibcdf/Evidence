@@ -7,8 +7,13 @@ def heal(arg):
     for ii in arg:
         if type(ii) is list:
             for jj in ii:
-                if jj not in output:
-                    output.append(jj)
+                if type(jj) is list:
+                    for kk in jj:
+                        if kk not in output:
+                            output.append(kk)
+                else:
+                    if jj not in output:
+                        output.append(jj)
         else:
             if ii not in output:
                 output.append(ii)
