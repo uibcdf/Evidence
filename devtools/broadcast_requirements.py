@@ -29,9 +29,17 @@ meta["requirements"]["build"] = heal(all_requirements["setup"]["dependencies"])
 meta["requirements"]["run"] = heal(all_requirements["production"]["dependencies"])
 
 fff = open("conda-build/meta.yaml", "w")
-yaml.dump(meta, fff, sort_keys=True)
+yaml.dump(meta, fff, sort_keys=False)
 fff.close()
 
+with open("conda-build/meta.yaml", "r") as fff:
+    meta_lines = fff.readlines()
+
+with open("conda-build/meta.yaml", "w") as fff:
+    for line in meta_lines:
+        if line.startswith('  version:'):
+            line = '  version: \"{{ environ[\'GIT_DESCRIBE_TAG\'] }}\"\n'
+        fff.write(line)
 
 # Broadcasting to conda-envs
 
@@ -41,7 +49,7 @@ env_dict={}
 env_dict["channels"]=heal(all_requirements["production"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["production"]["dependencies"])
 fff = open("conda-envs/production_env.yaml", "w")
-yaml.dump(env_dict, fff, sort_keys=True)
+yaml.dump(env_dict, fff, sort_keys=False)
 fff.close()
 
 ## Development
@@ -50,7 +58,7 @@ env_dict={}
 env_dict["channels"]=heal(all_requirements["development"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["development"]["dependencies"])
 fff = open("conda-envs/development_env.yaml", "w")
-yaml.dump(env_dict, fff, sort_keys=True)
+yaml.dump(env_dict, fff, sort_keys=False)
 fff.close()
 
 ## Test
@@ -59,7 +67,7 @@ env_dict={}
 env_dict["channels"]=heal(all_requirements["test"]["channels"])
 env_dict["dependencies"]=heal(all_requirements["test"]["dependencies"])
 fff = open("conda-envs/test_env.yaml", "w")
-yaml.dump(env_dict, fff, sort_keys=True)
+yaml.dump(env_dict, fff, sort_keys=False)
 fff.close()
 
 ## Docs
