@@ -9,39 +9,25 @@ setup:
 
 production:
   channels: &production_channels
-    - defaults
+    - *setup_channels
   dependencies: &production_dependencies
-    - python
-
-development: # inherits production
-  channels:
-    - *setup_channels
-    - *production_channels
-  dependencies:
     - *setup_dependencies
-    - *production_dependencies
-    - pyyaml
 
-test: # inherits production
-  channels:
-    - *setup_channels
+test:
+  channels: &test_channels
     - *production_channels
-  dependencies:
-    - *setup_dependencies
+  dependencies: &test_dependencies
     - *production_dependencies
     - pytest
     - pip
     - pytest-cov
     - codecov
 
-docs: # inherits production
-  channels:
-    - *setup_channels
+docs:
+  channels: &docs_channels
     - *production_channels
-  dependencies:
-    - *setup_dependencies
+  dependencies: &docs_dependencies
     - *production_dependencies
-    - jupyterlab
     - sphinx
     - sphinx_rtd_theme
     - sphinxcontrib-bibtex
@@ -49,11 +35,20 @@ docs: # inherits production
     - recommonmark
     - sphinx-markdown-tables
 
+development:
+  channels:
+    - *production_channels
+  dependencies:
+    - *production_dependencies
+    - *test_dependencies
+    - *docs_dependencies
+    - jupyterlab
+    - pyyaml
+
 conda-build:
   channels:
-    - *setup_channels
+    - *production_channels
   dependencies:
-    - *setup_dependencies
     - anaconda-client
     - conda-build
 

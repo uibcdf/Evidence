@@ -12,6 +12,8 @@ requirements:
   - numpy
   run:
   - python
+  - setuptools
+  - numpy
 about:
   description: This library provides...
   dev_url: https://github.com/uibcdf/Evidence

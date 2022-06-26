@@ -5,4 +5,15 @@ dependencies:
 - python
 - setuptools
 - numpy
+- pytest
+- pip
+- pytest-cov
+- codecov
+- sphinx
+- sphinx_rtd_theme
+- sphinxcontrib-bibtex
+- nbsphinx
+- recommonmark
+- sphinx-markdown-tables
+- jupyterlab
 - pyyaml
