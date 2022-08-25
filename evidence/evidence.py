@@ -112,6 +112,14 @@ class Evidence():
 
         pass
 
+    def add_eco(self, eco):
+
+        if is_eco(eco):
+
+            if not isinstance(eco, str):
+
+
+
     def __deepcopy__(self):
 
         aux = Evidence()
