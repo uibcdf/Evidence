@@ -44,6 +44,7 @@ development:
     - *docs_dependencies
     - jupyterlab
     - pyyaml
+    - mamba
 
 conda-build:
   channels:

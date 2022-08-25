@@ -1,4 +1,4 @@
-from . import refs
+from . import references as refs
 
 class Evidence():
 
@@ -6,6 +6,7 @@ class Evidence():
 
         self.value = value
         self.references = []
+        self.ecos = []
 
     def __call__(self, references=False):
 
@@ -24,7 +25,10 @@ class Evidence():
 
     def __repr__(self):
 
-        return f"{self.value} <{len(self.references)} refs.>"
+        if len(self.ecos):
+            return f"{self.value} <{len(self.references)} refs.; {len(self.ecos)} ECOs>"
+        else:
+            return f"{self.value} <{len(self.references)} refs.>"
 
     def _repr_html_(self):
 
@@ -34,8 +38,15 @@ class Evidence():
         for ref in self.references:
             output_refs.append(ref._repr_html_())
 
+        output_ecos = []
+        for eco in self.eco:
+            output_ecos.append(eco._repr_html_())
+
         if len(output_refs):
-            output += ' <'+', '.join(output_refs)+'>'
+            output += ' <'+', '.join(output_refs)
+            if len(output_ecos):
+                output += ' | ECOs'+', '.join(output_ecos)
+            output +='>'
 
         return output
 
@@ -47,16 +58,47 @@ class Evidence():
         for ref in self.references:
             output_refs.append(ref.__str__())
 
+        output_ecos = []
+        for eco in self.eco:
+            output_ecos.append(eco._str_())
+
         if len(output_refs):
-            output += ' <'+', '.join(output_refs)+'>'
+            output += ' <'+', '.join(output_refs)
+            if len(output_ecos):
+                output += ' | ECOs'+', '.join(output_ecos)
+            output +='>'
 
         return output
 
     def add_reference(self, reference):
 
-        from .tools import reference as _reference
+        if is_reference(reference):
+ 
+            if type(reference) is not dict:
+ 
+                reference = reference.__deepcopy__()
+ 
+            else:
+ 
+                if 'database' in reference:
 
-        reference = _reference(reference)
+                    database = reference.pop('database')
+                    reference = refs.dict_ref[database](**reference)
+ 
+                elif ('authors' in reference) and ('journal' in reference):
+
+                    reference = refs.dict_ref['JournalArticle'](**reference)
+ 
+                else:
+
+                    raise ValueError('The input argument is not valid as reference')
+ 
+        else:
+
+            raise ValueError('The input argument is not valid as reference')
+
+        return output
+
         dict_reference = reference()
 
         new=True
@@ -75,7 +117,9 @@ class Evidence():
         aux = Evidence()
         aux.value = self.value
         for ref in self.reference:
-            aux.append(ref.__deepcopy__())
+            aux.reference.append(ref.__deepcopy__())
+        for eco in self.ecos:
+            aux.ecos.append(eco.__deepcopy__())
 
         return aux
 

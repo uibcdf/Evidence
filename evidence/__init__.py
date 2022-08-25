@@ -16,5 +16,5 @@ __github_issues_web__ = __github_web__ + '/issues'
 
 
 from .evidence import Evidence
-from .tools import reference
-from .tools import identity, is_subset, same_value, join
+from .main import reference
+from .main import identity, is_subset, same_value, join

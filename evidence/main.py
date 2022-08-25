@@ -1,5 +1,5 @@
 from .evidence import Evidence
-from .refs import dict_ref
+from .references import dict_ref
 
 def is_reference(reference):
 
@@ -16,33 +16,6 @@ def is_reference(reference):
 
         if reference.__class__.__name__ in dict_ref:
             output = True
-
-    return output
-
-def reference(reference):
-
-    output = None
-
-    if is_reference(reference):
-
-        if type(reference) is not dict:
-
-            output = reference.__deepcopy__()
-
-        else:
-
-            if 'database' in reference:
-                database = reference.pop('database')
-                output = dict_ref[database](**reference)
-
-            elif ('authors' in reference) and ('jounal' in reference):
-                output = dict_ref['JournalArticle'](**reference)
-
-            else:
-                raise ValueError('The input argument is not valid as reference')
-
-    else:
-        raise ValueError('The input argument is not valid as reference')
 
     return output
 
@@ -123,5 +96,4 @@ def join(evidences):
             evidence.add_reference(reference())
 
     return evidence
-
 
