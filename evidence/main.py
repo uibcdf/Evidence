@@ -1,5 +1,5 @@
 from .evidence import Evidence
-from .references import dict_ref
+from .reference import _dict_ref
 
 def is_reference(reference):
 
@@ -14,7 +14,7 @@ def is_reference(reference):
 
     else:
 
-        if reference.__class__.__name__ in dict_ref:
+        if reference.__class__.__name__ in _dict_ref:
             output = True
 
     return output

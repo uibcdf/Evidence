@@ -1,4 +1,4 @@
-from . import references as refs
+from . import reference as refs
 
 class Evidence():
 

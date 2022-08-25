@@ -1,3 +1,5 @@
+name = 'Journal article'
+
 class JournalArticle():
 
     def __init__(self, title=None, authors=None, journal=None, volume=None, first_page=None,
