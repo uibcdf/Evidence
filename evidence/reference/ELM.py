@@ -1,5 +1,7 @@
 from .database import DataBase
 
+name = 'ELM'
+
 class ELM(DataBase):
 
     def __init__(self, id=None):

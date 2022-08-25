@@ -2,7 +2,7 @@ from . import reference as refs
 
 class Evidence():
 
-    def __init__(self, value=None):
+    def __init__(self, value=None, references=None, ecos=None):
 
         self.value = value
         self.references = []

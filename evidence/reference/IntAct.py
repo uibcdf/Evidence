@@ -2,7 +2,7 @@ from .database import DataBase
 
 name = 'IntAct'
 
-class IntAct(Database):
+class IntAct(DataBase):
 
     def __init__(self, id=None):
 

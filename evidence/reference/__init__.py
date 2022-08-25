@@ -14,8 +14,32 @@ for ref_name in list_refs:
 
     ref = getattr(mod, ref_name)
 
-    _dict_ref[ref.name]=ref
+    _dict_ref[mod.name]=ref
     locals()[ref_name]=ref
 
 del(current_dir, excluded_files, list_refs, ref_name, mod, ref)
+
+def add_database(name=None, id=None, long_name=None, web=None, webid=None, info=None):
+
+    if name is not None:
+
+        from evidence.reference.database import DataBase
+
+        def __init__database(self, id=None):
+
+            self.id = id
+
+        name_class = name.replace(' ', '_')
+
+        new_class = type(name_class, (DataBase, ), {
+            "__init__": __init__database,
+            "name": name,
+            "long_name": long_name,
+            "web":web,
+            "webid":webid,
+            "info": info
+            })
+
+        _dict_ref[name] = new_class
+        locals()[name_class] = new_class
 
