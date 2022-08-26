@@ -1,20 +1,18 @@
 from .evidence import Evidence
-from .reference import _dict_ref
 
 def is_reference(reference):
+
+    from .reference import _dict_class
 
     output = False
 
     if type(reference) is dict:
-
         if ('database' in reference) and ('id' in reference):
             output = True
         elif ('authors' in reference) and ('journal' in reference):
             output = True
-
     else:
-
-        if reference.__class__.__name__ in _dict_ref:
+        if reference.__class__.__module__.startswith('evidence.reference.'):
             output = True
 
     return output

@@ -1,12 +1,14 @@
 from .database import DataBase
 
-name = 'Rhea'
+keyname = 'Rhea'
+alternative_keynames = []
 
 class Rhea(DataBase):
 
     def __init__(self, id=None):
 
-        self.database = 'Rhea'
+        self.database = keyname
+        self.name = 'Rhea'
         self.id = id
         self.web = 'https://www.rhea-db.org/'
         self.webid = 'https://www.rhea-db.org/rhea/{self.id}'

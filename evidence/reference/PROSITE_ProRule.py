@@ -1,12 +1,14 @@
 from .database import DataBase
 
-name = 'PROSITE ProRule'
+keyname = 'PROSITE ProRule'
+alternative_keynames = ['PROSITE_ProRule']
 
 class PROSITE_ProRule(DataBase):
 
     def __init__(self, id=None):
 
-        self.database = 'PROSITE ProRule'
+        self.database = keyname
+        self.name = 'PROSITE ProRule'
         self.id = id
         self.web = 'https://prosite.expasy.org/prorule.html'
         self.webid = 'https://prosite.expasy.org/rule/{self.id}'

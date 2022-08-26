@@ -1,12 +1,14 @@
 from .database import DataBase
 
-name = 'BioGrid'
+keyname = 'BioGRID'
+alternative_keynames = []
 
 class BioGRID(DataBase):
 
     def __init__(self, id=None):
 
-        self.database = 'BioGrid'
+        self.database = keyname
+        self.name = 'BioGRID'
         self.id = id
         self.web = 'https://thebiogrid.org'
         self.webid = 'https://thebiogrid.org'

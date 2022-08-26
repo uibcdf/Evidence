@@ -1,4 +1,5 @@
-name = 'Journal article'
+keyname = 'Journal article'
+alternative_keynames = []
 
 class JournalArticle():
 

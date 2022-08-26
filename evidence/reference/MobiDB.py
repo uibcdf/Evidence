@@ -1,12 +1,14 @@
 from .database import DataBase
 
-name = 'MobiDB'
+keyname = 'MobiDB'
+alternative_keynames = []
 
 class MobiDB(DataBase):
 
     def __init__(self, id=None):
 
-        self.database = 'MobiDB'
+        self.database = keyname
+        self.name = 'MobiDB'
         self.id = id
         self.web = 'https://mobidb.bio.unipd.it/'
         self.webid = 'https://mobidb.bio.unipd.it/{self.id}'

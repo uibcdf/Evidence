@@ -17,4 +17,3 @@ __github_issues_web__ = __github_web__ + '/issues'
 
 from .evidence import Evidence
 from .main import is_evidence, compare, join
-from . import configure

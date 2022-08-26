@@ -1,12 +1,14 @@
 from .database import DataBase
 
-name = 'PubMed'
+keyname = 'PubMed'
+alternative_keynames = []
 
 class PubMed(DataBase):
 
     def __init__(self, id=None):
 
-        self.database = 'PubMed'
+        self.database = keyname
+        self.name = 'PubMed'
         self.id = id
         self.web = 'https://pubmed.ncbi.nlm.nih.gov/'
         self.webid = 'https://pubmed.ncbi.nlm.nih.gov/{self.id}'

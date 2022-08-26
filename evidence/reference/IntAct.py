@@ -1,12 +1,14 @@
 from .database import DataBase
 
-name = 'IntAct'
+keyname = 'IntAct'
+alternative_keynames = []
 
 class IntAct(DataBase):
 
     def __init__(self, id=None):
 
-        self.database = 'IntAct'
+        self.database = keyname
+        self.name = 'IntAct'
         self.id = id
         self.web = 'https://www.ebi.ac.uk/intact/home'
         self.webid = 'https://www.ebi.ac.uk/intact/home'

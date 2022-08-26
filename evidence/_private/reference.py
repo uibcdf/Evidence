@@ -1,15 +1,16 @@
 def digest_reference(reference):
 
-    from evidence.reference import is_reference
+    from evidence.main import is_reference
+    from evidence.reference import _dict_class, _dict_keyname
 
     if is_reference(reference):
  
         if isinstance(reference, dict):
  
             if 'database' in reference:
-
                 database = reference.pop('database')
-                reference = refs.dict_ref[database](**reference)
+                keyname = _dict_keyname[database]
+                reference = _dict_class[keyname](**reference)
  
             elif ('authors' in reference) and ('journal' in reference):
 

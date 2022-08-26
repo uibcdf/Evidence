@@ -1,12 +1,14 @@
 from .database import DataBase
 
-name = 'ELM'
+keyname = 'ELM'
+alternative_keynames = []
 
 class ELM(DataBase):
 
     def __init__(self, id=None):
 
-        self.database = 'ELM'
+        self.database = keyname
+        self.name = 'ELM'
         self.id = id
         self.web = 'http://elm.eu.org/'
         self.webid = 'http://elm.eu.org/'
