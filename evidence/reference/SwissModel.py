@@ -6,10 +6,9 @@ class SwissModel(DataBase):
 
     def __init__(self, id=None):
 
-        self.name = 'SwissModel'
+        self.database = 'SwissModel'
         self.id = id
-        self.long_name = 'Swiss-Model Repository'
         self.web = 'https://swissmodel.expasy.org/'
         self.webid = 'https://swissmodel.expasy.org/'
-        self.info = ''
+        self.info = 'Swiss-Model Repository'
 

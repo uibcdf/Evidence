@@ -6,10 +6,9 @@ class MobiDB(DataBase):
 
     def __init__(self, id=None):
 
-        self.name = 'MobiDB'
+        self.database = 'MobiDB'
         self.id = id
-        self.long_name = 'MobiDB, a database of protein disorder and mobility annotations.'
         self.web = 'https://mobidb.bio.unipd.it/'
         self.webid = 'https://mobidb.bio.unipd.it/{self.id}'
-        self.info = ''
+        self.info = 'MobiDB, a database of protein disorder and mobility annotations.'
 

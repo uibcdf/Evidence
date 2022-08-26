@@ -6,10 +6,9 @@ class MINT(DataBase):
 
     def __init__(self, id=None):
 
-        self.name = 'MINT'
+        self.database = 'MINT'
         self.id = id
-        self.long_name = 'MINT, the Molecular INTeraction database'
         self.web = 'https://mint.bio.uniroma2.it/'
         self.webid = 'https://mint.bio.uniroma2.it/'
-        self.info = ''
+        self.info = 'The Molecular INTeraction database'
 

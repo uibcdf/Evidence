@@ -1,23 +1,23 @@
 from importlib import import_module
 import os
 
-_dict_ref = {}
+_dict_class = {}
+_name_to_class_name = {}
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 excluded_files = ['__init__.py', 'database.py']
-list_refs = [filename.split('.')[0] for filename in os.listdir(current_dir) if (filename not in excluded_files) and filename.endswith('.py')]
+list_module_names = [filename.split('.')[0] for filename in os.listdir(current_dir) if (filename not in excluded_files) and filename.endswith('.py')]
 
-for ref_name in list_refs:
+for module_name in list_module_names:
 
-    mod = import_module('evidence.reference.'+ref_name)
+    class_name = module_name
+    module = import_module('evidence.reference.'+module_name)
+    _dict_class[class_name]=getattr(module, class_name)
+    locals()[class_name]=getattr(module, class_name)
+    _name_to_class_name[module.name]=class_name
 
-    ref = getattr(mod, ref_name)
-
-    _dict_ref[mod.name]=ref
-    locals()[ref_name]=ref
-
-del(current_dir, excluded_files, list_refs, ref_name, mod, ref)
+del(current_dir, excluded_files, list_module_names, class_name, module)
 
 def add_database(name=None, id=None, long_name=None, web=None, webid=None, info=None):
 
@@ -29,9 +29,9 @@ def add_database(name=None, id=None, long_name=None, web=None, webid=None, info=
 
             self.id = id
 
-        name_class = name.replace(' ', '_')
+        class_name = _name_to_class_name[name]
 
-        new_class = type(name_class, (DataBase, ), {
+        new_class = type(class_name, (DataBase, ), {
             "__init__": __init__database,
             "name": name,
             "long_name": long_name,
@@ -40,6 +40,6 @@ def add_database(name=None, id=None, long_name=None, web=None, webid=None, info=
             "info": info
             })
 
-        _dict_ref[name] = new_class
-        locals()[name_class] = new_class
+        _dict_class[class_name] = new_class
+        locals()[class_name] = new_class
 

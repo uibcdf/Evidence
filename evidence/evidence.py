@@ -1,4 +1,4 @@
-from . import reference as refs
+from ._private import digest_reference, digest_eco
 
 class Evidence():
 
@@ -70,54 +70,50 @@ class Evidence():
 
         return output
 
-    def add_reference(self, reference):
+    def has_reference(self, reference):
 
-        if is_reference(reference):
- 
-            if type(reference) is not dict:
- 
-                reference = reference.__deepcopy__()
- 
-            else:
- 
-                if 'database' in reference:
+        output = False
 
-                    database = reference.pop('database')
-                    reference = refs.dict_ref[database](**reference)
- 
-                elif ('authors' in reference) and ('journal' in reference):
-
-                    reference = refs.dict_ref['JournalArticle'](**reference)
- 
-                else:
-
-                    raise ValueError('The input argument is not valid as reference')
- 
-        else:
-
-            raise ValueError('The input argument is not valid as reference')
-
-        return output
+        reference = digest_reference(reference)
 
         dict_reference = reference()
 
-        new=True
         for aux in self.references:
             if aux()==dict_reference:
-                new=False
+                output=True
                 break
 
-        if new:
+        return output
+
+    def add_reference(self, reference):
+
+        reference = digest_reference(reference)
+
+        if not self.has_reference(reference):
             self.references.append(reference)
 
-        pass
+    def has_eco(self, eco):
+
+        output = False
+
+        eco = digest_eco(eco)
+
+        dict_eco = eco()
+
+        for aux in self.ecos:
+            if aux()==dict_eco:
+                output=True
+                break
+
+        return output
+
 
     def add_eco(self, eco):
 
-        if is_eco(eco):
+        eco = digest_eco(eco)
 
-            if not isinstance(eco, str):
-
+        if not self.has_eco(eco):
+            self.ecos.append(eco)
 
 
     def __deepcopy__(self):
