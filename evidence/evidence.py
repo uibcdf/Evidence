@@ -39,7 +39,7 @@ class Evidence():
             output_refs.append(ref._repr_html_())
 
         output_ecos = []
-        for eco in self.eco:
+        for eco in self.ecos:
             output_ecos.append(eco._repr_html_())
 
         if len(output_refs):

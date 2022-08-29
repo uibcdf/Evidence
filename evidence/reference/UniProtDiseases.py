@@ -3,7 +3,7 @@ from .database import DataBase
 keyname = 'UniProt Diseases'
 alternative_keynames = ['UniProt_Diseases']
 
-class UniProt_Diseases(DataBase):
+class UniProtDiseases(DataBase):
 
     def __init__(self, id=None):
 

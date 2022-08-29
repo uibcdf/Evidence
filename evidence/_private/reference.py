@@ -14,8 +14,12 @@ def digest_reference(reference):
  
             elif ('authors' in reference) and ('journal' in reference):
 
-                reference = refs.dict_ref['JournalArticle'](**reference)
- 
+                reference = _dict_class['journal article'](**reference)
+  
+            elif ('web' in reference) and ('name' in reference):
+
+                reference = _dict_class['web'](**reference)
+
             else:
 
                 raise ValueError('The input argument is not valid as reference')

@@ -33,7 +33,7 @@ def add_database(database=None, name=None, id=None, web=None, webid=None, info=N
 
             self.id = id
 
-        class_name = _name_to_class_name[database]
+        class_name = database.replace(' ', '_')
 
         new_class = type(class_name, (DataBase, ), {
             "__init__": __init__database,
@@ -44,8 +44,8 @@ def add_database(database=None, name=None, id=None, web=None, webid=None, info=N
             "info": info
             })
 
-        _dict_class[class_name] = new_class
-        _dict_keyname[database] = new_class
+        _dict_class[database] = new_class
+        _dict_keyname[database] = database
         locals()[class_name] = new_class
 
 def Reference(reference):

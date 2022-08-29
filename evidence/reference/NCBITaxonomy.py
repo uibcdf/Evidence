@@ -3,7 +3,7 @@ from .database import DataBase
 keyname = 'NCBI Taxonomy'
 alternative_keynames = ['NCBI_Taxonomy']
 
-class NCBI_Taxonomy(DataBase):
+class NCBITaxonomy(DataBase):
 
     def __init__(self, id=None):
 

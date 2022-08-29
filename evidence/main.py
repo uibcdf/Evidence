@@ -11,6 +11,8 @@ def is_reference(reference):
             output = True
         elif ('authors' in reference) and ('journal' in reference):
             output = True
+        elif ('web' in reference) and ('name' in reference):
+            output = True
     else:
         if reference.__class__.__module__.startswith('evidence.reference.'):
             output = True

@@ -1,5 +1,5 @@
-keyname = 'Journal article'
-alternative_keynames = []
+keyname = 'journal article'
+alternative_keynames = ['JournalArticle', 'Journal article']
 
 class JournalArticle():
 
@@ -15,7 +15,6 @@ class JournalArticle():
         self.year = year
         self.doi = doi
         self.pubmed = pubmed
-        self._long_name = 'journal article'
 
     def __call__(self):
 

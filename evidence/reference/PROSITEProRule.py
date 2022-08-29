@@ -3,7 +3,7 @@ from .database import DataBase
 keyname = 'PROSITE ProRule'
 alternative_keynames = ['PROSITE_ProRule', 'PROSITE-ProRule']
 
-class PROSITE_ProRule(DataBase):
+class PROSITEProRule(DataBase):
 
     def __init__(self, id=None):
 
