@@ -1,7 +1,7 @@
 from .database import DataBase
 
 keyname = 'PROSITE ProRule'
-alternative_keynames = ['PROSITE_ProRule']
+alternative_keynames = ['PROSITE_ProRule', 'PROSITE-ProRule']
 
 class PROSITE_ProRule(DataBase):
 

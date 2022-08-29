@@ -48,3 +48,9 @@ def add_database(database=None, name=None, id=None, web=None, webid=None, info=N
         _dict_keyname[database] = new_class
         locals()[class_name] = new_class
 
+def Reference(reference):
+
+    from evidence._private.reference import digest_reference
+
+    return digest_reference(reference)
+

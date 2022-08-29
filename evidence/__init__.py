@@ -16,4 +16,6 @@ __github_issues_web__ = __github_web__ + '/issues'
 
 
 from .evidence import Evidence
+from .reference import Reference
+from .eco import ECO
 from .main import is_evidence, compare, join

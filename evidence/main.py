@@ -42,7 +42,6 @@ def is_evidence(evidence):
 
     return output
 
-
 def compare(evidence_A, evidence_B, rule='A_eq_B'):
 
     # rule in ['A_eq_B', 'A_neq_B', 'A_in_B', 'B_in_A']
