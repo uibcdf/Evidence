@@ -17,3 +17,4 @@ dependencies:
 - sphinx-markdown-tables
 - jupyterlab
 - pyyaml
+- mamba
