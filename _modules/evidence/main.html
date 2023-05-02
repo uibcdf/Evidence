@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>evidence.main &mdash; Evidence 0.3.0+0.ge6f2305.dirty documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Evidence
+          </a>
+              <div class="version">
+                0.3.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Installation and quick guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/Quick_Guide.html">Quick Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Evidence</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">evidence.main</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+             
+  <h1>Source code for evidence.main</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.evidence</span> <span class="kn">import</span> <span class="n">Evidence</span>
+
+<div class="viewcode-block" id="is_reference"><a class="viewcode-back" href="../../evidence.html#evidence.main.is_reference">[docs]</a><span class="k">def</span> <span class="nf">is_reference</span><span class="p">(</span><span class="n">reference</span><span class="p">):</span>
+
+    <span class="kn">from</span> <span class="nn">.reference</span> <span class="kn">import</span> <span class="n">_dict_class</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;database&#39;</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;authors&#39;</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;journal&#39;</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;web&#39;</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="ow">in</span> <span class="n">reference</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">reference</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__module__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;evidence.reference.&#39;</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="is_eco"><a class="viewcode-back" href="../../evidence.html#evidence.main.is_eco">[docs]</a><span class="k">def</span> <span class="nf">is_eco</span><span class="p">(</span><span class="n">eco</span><span class="p">):</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">eco</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eco</span><span class="p">)</span><span class="o">==</span><span class="mi">7</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">eco</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;ECO&#39;</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="is_evidence"><a class="viewcode-back" href="../../evidence.html#evidence.main.is_evidence">[docs]</a><span class="k">def</span> <span class="nf">is_evidence</span><span class="p">(</span><span class="n">evidence</span><span class="p">):</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">evidence</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;Evidence&#39;</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="compare"><a class="viewcode-back" href="../../evidence.html#evidence.main.compare">[docs]</a><span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">evidence_A</span><span class="p">,</span> <span class="n">evidence_B</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="s1">&#39;A_eq_B&#39;</span><span class="p">):</span>
+
+    <span class="c1"># rule in [&#39;A_eq_B&#39;, &#39;A_neq_B&#39;, &#39;A_in_B&#39;, &#39;B_in_A&#39;]</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">rule</span> <span class="o">==</span> <span class="s1">&#39;A_eq_B&#39;</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="n">evidence_B</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+
+            <span class="n">references_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+            <span class="n">references_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">references_A</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">):</span>
+
+                <span class="k">for</span> <span class="n">reference_A</span> <span class="ow">in</span> <span class="n">references_A</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">)):</span>
+                        <span class="k">if</span> <span class="n">reference_A</span><span class="o">==</span><span class="n">references_B</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                            <span class="n">_</span> <span class="o">=</span> <span class="n">references_B</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                            <span class="k">break</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                    <span class="n">ecos_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+                    <span class="n">ecos_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+
+
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ecos_A</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">):</span>
+
+                        <span class="k">for</span> <span class="n">eco_A</span> <span class="ow">in</span> <span class="n">ecos_A</span><span class="p">:</span>
+                            <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">)):</span>
+                                <span class="k">if</span> <span class="n">eco_A</span><span class="o">==</span><span class="n">eco_B</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                                    <span class="n">_</span> <span class="o">=</span> <span class="n">ecos_B</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                                    <span class="k">break</span>
+
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                            <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">elif</span> <span class="n">rule</span> <span class="o">==</span> <span class="s1">&#39;A_neq_B&#39;</span><span class="p">:</span>
+
+        <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="n">evidence_B</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+
+            <span class="n">references_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+            <span class="n">references_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">references_A</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">):</span>
+
+                <span class="k">for</span> <span class="n">reference_A</span> <span class="ow">in</span> <span class="n">references_A</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">)):</span>
+                        <span class="k">if</span> <span class="n">reference_A</span><span class="o">==</span><span class="n">references_B</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                            <span class="n">_</span> <span class="o">=</span> <span class="n">references_B</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                            <span class="k">break</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                    <span class="n">ecos_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+                    <span class="n">ecos_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+
+
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ecos_A</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">):</span>
+
+                        <span class="k">for</span> <span class="n">eco_A</span> <span class="ow">in</span> <span class="n">ecos_A</span><span class="p">:</span>
+                            <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">)):</span>
+                                <span class="k">if</span> <span class="n">eco_A</span><span class="o">==</span><span class="n">eco_B</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                                    <span class="n">_</span> <span class="o">=</span> <span class="n">ecos_B</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                                    <span class="k">break</span>
+
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                            <span class="n">output</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">elif</span> <span class="n">rule</span> <span class="o">==</span> <span class="s1">&#39;A_in_B&#39;</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="n">evidence_B</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+
+            <span class="n">references_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+            <span class="n">references_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">reference_B</span> <span class="ow">in</span> <span class="n">references_B</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">references_A</span><span class="p">)):</span>
+                    <span class="k">if</span> <span class="n">reference_B</span><span class="o">==</span><span class="n">references_A</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                        <span class="n">_</span> <span class="o">=</span> <span class="n">references_A</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                        <span class="k">break</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">references_A</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                <span class="n">ecos_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+                <span class="n">ecos_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+
+                <span class="k">for</span> <span class="n">eco_B</span> <span class="ow">in</span> <span class="n">ecos_B</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ecos_A</span><span class="p">)):</span>
+                        <span class="k">if</span> <span class="n">eco_B</span><span class="o">==</span><span class="n">ecos_A</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                            <span class="n">_</span> <span class="o">=</span> <span class="n">ecos_A</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                            <span class="k">break</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ecos_A</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                    <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">elif</span> <span class="n">rule</span> <span class="o">==</span> <span class="s1">&#39;B_in_A&#39;</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="n">evidence_B</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+
+            <span class="n">references_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+            <span class="n">references_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">ref</span><span class="p">()</span> <span class="k">for</span> <span class="n">ref</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">references</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">reference_A</span> <span class="ow">in</span> <span class="n">references_A</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">)):</span>
+                    <span class="k">if</span> <span class="n">reference_A</span><span class="o">==</span><span class="n">references_B</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                        <span class="n">_</span> <span class="o">=</span> <span class="n">references_B</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                        <span class="k">break</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">references_B</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                <span class="n">ecos_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_A</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+                <span class="n">ecos_B</span> <span class="o">=</span> <span class="p">[</span><span class="n">eco</span><span class="p">()</span> <span class="k">for</span> <span class="n">eco</span> <span class="ow">in</span> <span class="n">evidence_B</span><span class="o">.</span><span class="n">ecos</span><span class="p">]</span>
+
+                <span class="k">for</span> <span class="n">eco_A</span> <span class="ow">in</span> <span class="n">ecos_A</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">)):</span>
+                        <span class="k">if</span> <span class="n">eco_A</span><span class="o">==</span><span class="n">ecos_B</span><span class="p">[</span><span class="n">ii</span><span class="p">]:</span>
+                            <span class="n">_</span> <span class="o">=</span> <span class="n">ecos_B</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span>
+                            <span class="k">break</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ecos_B</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+                    <span class="n">output</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="join"><a class="viewcode-back" href="../../evidence.html#evidence.main.join">[docs]</a><span class="k">def</span> <span class="nf">join</span><span class="p">(</span><span class="n">evidences</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">evidences</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]:</span>
+        <span class="n">evidences</span> <span class="o">=</span> <span class="p">[</span><span class="n">evidences</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">same_value</span><span class="p">(</span><span class="n">evidences</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">evidence</span> <span class="o">=</span> <span class="n">Evidence</span><span class="p">()</span>
+
+    <span class="n">evidence</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">evidences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+
+    <span class="k">for</span> <span class="n">aux</span> <span class="ow">in</span> <span class="n">evidences</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">reference</span> <span class="ow">in</span> <span class="n">aux</span><span class="o">.</span><span class="n">references</span><span class="p">:</span>
+            <span class="n">evidence</span><span class="o">.</span><span class="n">add_reference</span><span class="p">(</span><span class="n">reference</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">evidence</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+    <a href="https://github.com/uibcdf/evidence">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, UIBCDF Lab at the Mexico City Childrens Hospital Federico Gomez and authors.Project structure based on the Computational Molecular Science Python Cookiecutter version 1.5.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

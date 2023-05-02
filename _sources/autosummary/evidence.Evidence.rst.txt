@@ -1,0 +1,26 @@
+﻿evidence.Evidence
+=================
+
+.. currentmodule:: evidence
+
+.. autoclass:: Evidence
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Evidence.__init__
+      ~Evidence.add_eco
+      ~Evidence.add_reference
+      ~Evidence.has_eco
+      ~Evidence.has_reference
+   
+   
+
+   
+   
+   

@@ -1,0 +1,261 @@
+evidence.reference package
+==========================
+
+Submodules
+----------
+
+evidence.reference.BindingDB module
+-----------------------------------
+
+.. automodule:: evidence.reference.BindingDB
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.BioGRID module
+---------------------------------
+
+.. automodule:: evidence.reference.BioGRID
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.ChEBI module
+-------------------------------
+
+.. automodule:: evidence.reference.ChEBI
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.ChEMBL module
+--------------------------------
+
+.. automodule:: evidence.reference.ChEMBL
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.DIP module
+-----------------------------
+
+.. automodule:: evidence.reference.DIP
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.DOI module
+-----------------------------
+
+.. automodule:: evidence.reference.DOI
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.EC module
+----------------------------
+
+.. automodule:: evidence.reference.EC
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.ELM module
+-----------------------------
+
+.. automodule:: evidence.reference.ELM
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.HGNC module
+------------------------------
+
+.. automodule:: evidence.reference.HGNC
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.IntAct module
+--------------------------------
+
+.. automodule:: evidence.reference.IntAct
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.InterPro module
+----------------------------------
+
+.. automodule:: evidence.reference.InterPro
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.JournalArticle module
+----------------------------------------
+
+.. automodule:: evidence.reference.JournalArticle
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.MINT module
+------------------------------
+
+.. automodule:: evidence.reference.MINT
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.MobiDB module
+--------------------------------
+
+.. automodule:: evidence.reference.MobiDB
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.NCBITaxonomy module
+--------------------------------------
+
+.. automodule:: evidence.reference.NCBITaxonomy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.OMIM module
+------------------------------
+
+.. automodule:: evidence.reference.OMIM
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.PDB module
+-----------------------------
+
+.. automodule:: evidence.reference.PDB
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.PROSITEProRule module
+----------------------------------------
+
+.. automodule:: evidence.reference.PROSITEProRule
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.Pfam module
+------------------------------
+
+.. automodule:: evidence.reference.Pfam
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.PhosphoSitePlus module
+-----------------------------------------
+
+.. automodule:: evidence.reference.PhosphoSitePlus
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.ProDom module
+--------------------------------
+
+.. automodule:: evidence.reference.ProDom
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.PubMed module
+--------------------------------
+
+.. automodule:: evidence.reference.PubMed
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.Rhea module
+------------------------------
+
+.. automodule:: evidence.reference.Rhea
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.SMR module
+-----------------------------
+
+.. automodule:: evidence.reference.SMR
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.STRING module
+--------------------------------
+
+.. automodule:: evidence.reference.STRING
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.SUPERFAMILY module
+-------------------------------------
+
+.. automodule:: evidence.reference.SUPERFAMILY
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.UniProtDiseases module
+-----------------------------------------
+
+.. automodule:: evidence.reference.UniProtDiseases
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.UniProtKB module
+-----------------------------------
+
+.. automodule:: evidence.reference.UniProtKB
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.Web module
+-----------------------------
+
+.. automodule:: evidence.reference.Web
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.database module
+----------------------------------
+
+.. automodule:: evidence.reference.database
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.reference.iPTMnet module
+---------------------------------
+
+.. automodule:: evidence.reference.iPTMnet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: evidence.reference
+   :members:
+   :undoc-members:
+   :show-inheritance:

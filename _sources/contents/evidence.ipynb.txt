@@ -1,0 +1,300 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "edfd92de-6bab-4e33-a998-371bbcf15fab",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%load_ext autoreload\n",
+    "%autoreload 2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e6a64132-6411-4ae4-b289-94b809fc55b1",
+   "metadata": {},
+   "source": [
+    "# Evidence"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "6f9ca93f-c53c-4eea-9e3c-d1a3d0801b02",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import evidence as evi"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "df44e654-2d24-45de-8ded-24d5cf7d36ff",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "datum = evi.Evidence(3.12)\n",
+    "datum.add_reference({'database':'DOI', 'id':'XXX'})\n",
+    "datum.add_reference({'database':'PubMed', 'id':'YYY'})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "ef99d6bf-919a-4101-bfdc-90d8896b5fca",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "3.12 <<a href=\"https://www.doi.org/\">DOI: XXX</a>, <a href=\"https://pubmed.ncbi.nlm.nih.gov/\">PubMed: YYY</a>>"
+      ],
+      "text/plain": [
+       "3.12 <2 refs.>"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "datum"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "3d24e9f4-11d1-4aa0-9564-22d75a765268",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3.12 <DOI: XXX, PubMed: YYY>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(datum)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "65fd7288-5c2d-4632-b7c9-599491ec814a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3.12"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "datum.value"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "191088ea-66fa-46c4-a772-3a569cf2bdf3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<DOI: XXX>, <PubMed: YYY>]"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "datum.references"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "63f1bcbe-8d25-42ab-8149-35b12565cef0",
+   "metadata": {},
+   "source": [
+    "## Reference"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "27924828-8ff1-4846-b503-8a5525c0bd45",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<a href=\"https://www.doi.org/\">DOI: XXX</a>"
+      ],
+      "text/plain": [
+       "<DOI: XXX>"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "datum.references[0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "461e60ea-c2a2-4400-938a-d53bb01bc7c8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'database': 'DOI', 'id': <DOI: XXX>}"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "datum.references[0]()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "c9521915-358c-49e0-a071-1dc8c9950b20",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "evidence.refs.DOI.DOI"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(datum.references[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "34a8f223-a3f6-4d51-9512-9734962ed3c9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'XXX'"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "datum.references[0].id"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "3fd0e533-a315-4840-82c7-abb13bd70967",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ref = evi.reference({'database':'BindingDB', 'id':'XXX'})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "54de0662-1e92-4f09-aea7-bb63c2c8e6cd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<a href=\"https://www.bindingdb.org\">BindingDB: XXX</a>"
+      ],
+      "text/plain": [
+       "<BindingDB: XXX>"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ref"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "491ea40e-e4bc-4762-b699-b27203cfe480",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "evidence.refs.BindingDB.BindingDB"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(ref)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.10"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

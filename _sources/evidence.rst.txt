@@ -1,0 +1,45 @@
+evidence package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   evidence.reference
+
+Submodules
+----------
+
+evidence.eco module
+-------------------
+
+.. automodule:: evidence.eco
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.evidence module
+------------------------
+
+.. automodule:: evidence.evidence
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+evidence.main module
+--------------------
+
+.. automodule:: evidence.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: evidence
+   :members:
+   :undoc-members:
+   :show-inheritance:
