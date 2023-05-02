@@ -4,8 +4,9 @@ setup:
     - defaults
   dependencies: &setup_dependencies
     - python
-    - setuptools
-    - numpy
+    - pip
+    - setuptools >=61.0
+    - versioningit ~=2.0
 
 production:
   channels: &production_channels
@@ -19,7 +20,6 @@ test:
   dependencies: &test_dependencies
     - *production_dependencies
     - pytest
-    - pip
     - pytest-cov
     - codecov
 
